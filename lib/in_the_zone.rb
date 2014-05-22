@@ -18,10 +18,6 @@ module InTheZone
     time_tag( date.to_time, opts.merge( date_only: true, format: "%a, %d %b %Y" ) )
   end
 
-  def head_tags
-
-  end
-
   def javascript_path
     @javascript_path ||= File.join( gem_asset_path, "javascripts", "inthezone.js" )
   end
@@ -46,7 +42,6 @@ module InTheZone
   end
 
   def normalize_opts( opts )
-    puts DefaultOptions
     data = DefaultOptions.dup
     data[ :classes ] = [ data[ :classes ] ]
     if opts[ :date_only ]
@@ -55,7 +50,7 @@ module InTheZone
     if opts[ :format ]
       data[ :format ] = opts[ :format ]
     end
-    data[ :classes ] = data[ :classes ].sort.join("-")
+    data[ :classes ] = data[ :classes ].sort.join(" ")
     data
   end
 
