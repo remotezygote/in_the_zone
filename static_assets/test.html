@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script data-main="javascripts/test" src="javascripts/require-min-2.11.1.js"></script>
+    <link rel="stylesheet" href="stylesheets/inthezone.css"/>
+  </head>
+  <body>
+    <span class="local-time" id="live" data-bind="localizeTime: { timestamp: 1400742000, from_now: true, live_update: true }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1400142000, from_now: true }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1300142000, from_now: true }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'LLL' }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'LL' }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'L' }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'llll' }"></span><br/>
+    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'llll' }">Thu, 22 May 2014 21:41:46</span>
+  </body>
+</html>

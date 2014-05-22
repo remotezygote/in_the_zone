@@ -1,0 +1,7 @@
+.local-time {
+  opacity:.3;
+  transition:opacity .2s;
+}
+.local-time.localized {
+  opacity:1;
+}
