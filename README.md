@@ -50,10 +50,23 @@ Or if you have the gem install, you can just run:
 Or, if you use RequireJS, you can add this to your config file:
 
 ```javascript
+requirejs.config({
+  paths: {
+    ko: 'path/to/knockout',
+    moment: 'path/to/moment',
+    inthezone: 'path/to/js/file/you/got/above'
+  }
+});
 require.config({
   paths: {
     inthezone: 'pat/to/js/file/you/got/above',
   }
+```
+
+You can of course just copy the JS file to your repo as well... whatever works!
+
+```sh
+cp `in_the_zone_js_path` ./static/javascripts
 ```
 
 This span will automatically fill in with the time displayed in the correct format, in the correct timezone for the browser, as long as you have required the `inthezone` module and applied bindings.
