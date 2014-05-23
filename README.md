@@ -76,11 +76,6 @@ require.config({
 
 You can of course just copy the JS file to your repo as well... whatever works!
 
-```shell
-> cp `in_the_zone_js_path` ./static/javascripts
-> cp `bundle exec in_the_zone_js_path` ./static/javascripts
-```
-
 This span will automatically fill in with the time displayed in the correct format, in the correct timezone for the browser, as long as you have required the `inthezone` module and applied bindings.
 
 ```javascript
