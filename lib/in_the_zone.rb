@@ -6,12 +6,16 @@ module InTheZone
 
   extend self
 
-  DefaultOptions = { classes: "local-time", format: "%a, %d %b %Y %T" }.freeze
-  TagTemplate = "<span class=\"<%= classes %>\" data-bind=\"localizeTime: { timestamp: <%= timestamp %>, format: '<%= time_format %>' }\"><%= time_string %></span>".freeze
+  DefaultOptions = { format: "%a, %d %b %Y %T" }.freeze
+  TagTemplate = "<span class=\"<%= classes %>\" data-bind=\"localizeTime: { timestamp: <%= timestamp %>, format: '<%= time_format %>'<%= options %> }\"></span>".freeze
 
   def time_tag( time=Time.now.utc, opts={} )
     tag_data = normalize_opts( opts )
-    tag_template.result( tag_data.merge( time_string: time_string( time.utc, tag_data[ :format ] ), time_format: tag_data[ :format ], timestamp: time.utc.to_i ) )
+    options = tag_data[ :options ].inject([""]) do |acc, (k,v)|
+      acc << "#{k}: #{ v.is_a?(String) ? "'#{v}'" : v.to_s }"
+      acc
+    end.join(", ")
+    tag_template.result( tag_data.merge( time_string: time_string( time.utc, tag_data[ :format ] ), time_format: tag_data[ :format ], timestamp: time.utc.to_i, options: options ) )
   end
 
   def date_tag( date, opts={} )
@@ -43,9 +47,13 @@ module InTheZone
 
   def normalize_opts( opts )
     data = DefaultOptions.dup
-    data[ :classes ] = [ data[ :classes ] ]
-    if opts[ :date_only ]
-      data[ :classes ].push "date_only"
+    data[ :classes ] = [ 'local-time' ]
+    data[ :options ] = {}
+    if opts[ :from_now ]
+      data[ :options ][ :from_now ] = true
+    end
+    if opts[ :live_update ]
+      data[ :options ][ :live_update ] = true
     end
     if opts[ :format ]
       data[ :format ] = opts[ :format ]

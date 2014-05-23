@@ -1,6 +1,6 @@
 # InTheZone
 
-TODO: Write a gem description
+This is a simple gem that uses some simple tag generation helpers and some in-page javascript using KnockoutJS and MomentJS to make sure times displayed in a page are in the browser's local time zone and format.
 
 ## Installation
 
@@ -18,7 +18,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Pretty simple:
+
+```ruby
+require 'in_the_zone'
+InTheZone.time_tag( Time.now.utc, format: 'L', live_update: true )
+```
+
+Which will generate markup like:
+
+```html
+<span class="local-time" data-bind="localizeTime: { timestamp: 1400869278, format: 'L', live_update: true }"></span>
+```
+
+Then if you include the JS from the gem at the path gleaned from:
+
+```ruby
+InTheZone.javascript_path # => "/Workspaces/in_the_zone/static_assets/javascripts/inthezone.js"
+```
+
+This span will automatically fill in with the time displayed in the correct format, in the correct timezone for the browser.
 
 ## Contributing
 
