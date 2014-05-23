@@ -37,6 +37,15 @@ Then if you include the JS from the gem at the path gleaned from:
 InTheZone.javascript_path # => "/Workspaces/in_the_zone/static_assets/javascripts/inthezone.js"
 ```
 
+Or, if you use RequireJS, you can add this to your config file:
+
+```
+require.config({
+  paths: {
+    inthezone: 'pat/to/js/file/you/got/above',
+  }
+```
+
 This span will automatically fill in with the time displayed in the correct format, in the correct timezone for the browser.
 
 ## Contributing

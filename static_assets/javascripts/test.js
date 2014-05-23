@@ -1,7 +1,8 @@
 requirejs.config({
   paths: {
     ko: 'knockout-min-3.1.0',
-    moment: 'moment-min-2.6.0'
+    moment: 'moment-min-2.6.0',
+    inthezone: 'in_the_zone'
   }
 });
 define('test',

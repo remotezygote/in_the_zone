@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require 'in_the_zone'
+
+print InTheZone.javascript_path
