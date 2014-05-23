@@ -56,7 +56,7 @@ define('inthezone',
 				this.element.innerHTML = this.current_time().format(this.format());
 			};
 			this.element.classList.add("localized");
-			if(this.live_update()) {
+			if(this.from_now() && this.live_update()) {
 				this.start_interval();
 			};
 		};
