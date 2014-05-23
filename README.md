@@ -1,6 +1,6 @@
 # InTheZone
 
-This is a simple gem that uses some simple tag generation helpers and some in-page javascript using KnockoutJS and MomentJS to make sure times displayed in a page are in the browser's local time zone and format.
+This is a simple gem that uses some simple tag generation helpers and some in-page javascript using RequireJS, KnockoutJS and MomentJS to make sure times displayed in a page are in the browser's local time zone and format.
 
 ## Installation
 
@@ -39,7 +39,7 @@ InTheZone.javascript_path # => "/Workspaces/in_the_zone/static_assets/javascript
 
 Or, if you use RequireJS, you can add this to your config file:
 
-```
+```javascript
 require.config({
   paths: {
     inthezone: 'pat/to/js/file/you/got/above',
