@@ -26,17 +26,20 @@ require 'in_the_zone'
 # Time
 InTheZone.time_tag( Time.now.utc, format: 'L', live_update: true )
 # => <span class="local-time" data-bind="localizeTime: { timestamp: 1400885511, format: 'L', live_update: true }">05/23/14</span>
+InTheZone.time_tag( Time.now.utc )
+# => <span class="local-time" data-bind="localizeTime: { timestamp: 1400886211, format: 'LLL' }">May 23 2014 11:03 PM</span>
 
 # Date
 InTheZone.date_tag( Date.today.to_time.utc )
-# => <span class="local-time" data-bind="localizeTime: { timestamp: 1400828400, format: 'LLL' }">May 23 2014  7:00 AM</span>
+# => <span class="local-time" data-bind="localizeTime: { timestamp: 1400828400, format: 'LL' }">May 23 2014</span>
 ```
 
 Which will generate markup like:
 
 ```html
 <span class="local-time" data-bind="localizeTime: { timestamp: 1400885511, format: 'L', live_update: true }">05/23/14</span>
-<span class="local-time" data-bind="localizeTime: { timestamp: 1400828400, format: 'LLL' }">May 23 2014  7:00 AM</span>
+<span class="local-time" data-bind="localizeTime: { timestamp: 1400886211, format: 'LLL' }">May 23 2014 11:03 PM</span>
+<span class="local-time" data-bind="localizeTime: { timestamp: 1400828400, format: 'LL' }">May 23 2014</span>
 ```
 
 Then if you include the JS from the gem at the path gleaned from:

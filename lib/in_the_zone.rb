@@ -7,7 +7,7 @@ module InTheZone
 
   extend self
 
-  DefaultOptions = { format: "%a, %d %b %Y %T" }.freeze
+  DefaultOptions = { format: "LLL" }.freeze
   TagTemplate = "<span class=\"<%= classes %>\" data-bind=\"localizeTime: { timestamp: <%= timestamp %>, format: '<%= time_format %>'<%= options %> }\"><%= time_string %></span>".freeze
 
   def time_tag( time=Time.now.utc, opts={} )
@@ -20,7 +20,7 @@ module InTheZone
   end
 
   def date_tag( date, opts={} )
-    time_tag( date.to_time, opts.merge( date_only: true, format: "LLL" ) )
+    time_tag( date.to_time, { format: 'LL' }.merge(opts.merge( date_only: true ) ) )
   end
 
   def javascript_path
