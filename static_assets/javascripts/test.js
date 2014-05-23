@@ -9,5 +9,8 @@ define('test',
   function(ko,moment,zone) {
     ko.applyBindings();
     document.querySelector("#live").timeHandler.update_time(new Date());
+    var d = new Date();
+    d.setDate(d.getDate() - 1);
+    document.querySelector("#live-yesterday").timeHandler.update_time(d);
   }
 );

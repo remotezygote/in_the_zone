@@ -33,10 +33,21 @@ define('inthezone',
 			return(60*60*24*interval_base);
 		};
 
+		InTheZone.prototype.time_from_now = function(time) {
+			console.log(time.diff(moment(),'days'));
+			if(time.diff(moment(),'days')==0) {
+				return(time.format('LT'));
+			} else if(time.diff(moment(),'days')==-1){
+				return('Yesterday');
+			} else {
+				return(time.format('l'));
+			};
+		};
+
 		InTheZone.prototype.update_time = function(new_time) {
 			if(new_time) this.current_time(moment(new_time));
 			if(this.from_now()) {
-				this.element.innerHTML = this.current_time().fromNow();
+				this.element.innerHTML = this.time_from_now(this.current_time());
 			} else {
 				this.element.innerHTML = this.current_time().format(this.format());
 			};
