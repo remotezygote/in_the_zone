@@ -80,9 +80,12 @@ define('test',
 );
 ```
 
+# Demo
+Please see the demo page at `static_assets/test.html`.
+
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/in_the_zone/fork )
+1. Fork it ( http://github.com/remotezygote/in_the_zone/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
