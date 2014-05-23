@@ -33,15 +33,19 @@ define('inthezone',
 			return(60*60*24*interval_base);
 		};
 
+		// A Cozy-style time_from_now function...
+		// InTheZone.prototype.time_from_now = function(time) {
+		// 	if(time.diff(moment(),'days')==0) {
+		// 		return(time.format('LT'));
+		// 	} else if(time.diff(moment(),'days')==-1){
+		// 		return('Yesterday');
+		// 	} else {
+		// 		return(time.format('l'));
+		// 	};
+		// };
+
 		InTheZone.prototype.time_from_now = function(time) {
-			console.log(time.diff(moment(),'days'));
-			if(time.diff(moment(),'days')==0) {
-				return(time.format('LT'));
-			} else if(time.diff(moment(),'days')==-1){
-				return('Yesterday');
-			} else {
-				return(time.format('l'));
-			};
+			return(time.fromNow());
 		};
 
 		InTheZone.prototype.update_time = function(new_time) {
