@@ -9,7 +9,8 @@ define('test',
   ['ko', 'moment', 'inthezone'],
   function(ko,moment,zone) {
     ko.applyBindings();
-    document.querySelector("#live").timeHandler.update_time(new Date());
+    var lives = document.querySelectorAll(".live")
+    for(i=0;i<lives.length;i++) lives[i].timeHandler.update_time(new Date());
     var d = new Date();
     d.setDate(d.getDate() - 1);
     document.querySelector("#live-yesterday").timeHandler.update_time(d);

@@ -1,4 +1,5 @@
 require 'in_the_zone/version'
+require 'in_the_zone/ldml_format'
 require 'erubis'
 require 'pathname'
 
@@ -7,7 +8,7 @@ module InTheZone
   extend self
 
   DefaultOptions = { format: "%a, %d %b %Y %T" }.freeze
-  TagTemplate = "<span class=\"<%= classes %>\" data-bind=\"localizeTime: { timestamp: <%= timestamp %>, format: '<%= time_format %>'<%= options %> }\"></span>".freeze
+  TagTemplate = "<span class=\"<%= classes %>\" data-bind=\"localizeTime: { timestamp: <%= timestamp %>, format: '<%= time_format %>'<%= options %> }\"><%= time_string %></span>".freeze
 
   def time_tag( time=Time.now.utc, opts={} )
     tag_data = normalize_opts( opts )
@@ -42,7 +43,7 @@ module InTheZone
   end
 
   def time_string( time, fmt )
-    time.strftime( fmt )
+    LDML.format( time, fmt )
   end
 
   def normalize_opts( opts )

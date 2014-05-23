@@ -4,12 +4,13 @@
     <link rel="stylesheet" href="stylesheets/inthezone.css"/>
   </head>
   <body>
-    <span class="local-time" id="live" data-bind="localizeTime: { timestamp: 1400742000, from_now: true, live_update: true }"></span><br/>
-    <span class="local-time" id="live-yesterday" data-bind="localizeTime: { timestamp: 1400142000, from_now: true }"></span><br/>
-    <span class="local-time" data-bind="localizeTime: { timestamp: 1300142000, from_now: true }"></span><br/>
-    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'L' }"></span><br/>
-    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'LL' }"></span><br/>
-    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'LLL' }"></span><br/>
-    <span class="local-time" data-bind="localizeTime: { timestamp: 1400742000, format: 'llll' }"></span><br/>
+    Time of page load (from now, live update): <br/><span class="local-time live" data-bind="localizeTime: { timestamp: 1400742000, from_now: true, live_update: true }">a few seconds ago</span><br/><br/>
+    Time of page load: <br/><span class="local-time live" data-bind="localizeTime: { timestamp: 1400742000, format: 'h:mm:ss a' }">3:44:19 pm</span><br/><br/>
+    One day ago (from now): <br/><span class="local-time" id="live-yesterday" data-bind="localizeTime: { timestamp: 1400142000, from_now: true }">a day ago</span><br/><br/>
+    A time in the past (from now): <br/><span class="local-time" data-bind="localizeTime: { timestamp: 1300142000, from_now: true }">3 years ago</span><br/><br/>
+    Past date, different format: <br/><span class="local-time" data-bind="localizeTime: { timestamp: 1400879464, format: 'L' }">05/22/2014</span><br/><br/>
+    Same past date, different format: <br/><span class="local-time" data-bind="localizeTime: { timestamp: 1400879464, format: 'LL' }">May 22 2014</span><br/><br/>
+    Same past date, different format: <br/><span class="local-time" data-bind="localizeTime: { timestamp: 1400879464, format: 'LLL' }">May 22 2014 0:00 PM</span><br/><br/>
+    Same past date, different format: <br/><span class="local-time" data-bind="localizeTime: { timestamp: 1400879464, format: 'llll' }">Fri, May 22 2014 0:00 PM</span><br/><br/>
   </body>
 </html>

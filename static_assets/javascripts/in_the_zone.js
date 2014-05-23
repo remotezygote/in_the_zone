@@ -8,7 +8,7 @@ define('inthezone',
 			this.current_time = ko.observable(moment.unix(opts.timestamp));
 			this.from_now = ko.observable(opts.from_now);
 			this.live_update = ko.observable(opts.live_update);
-			if(this.live_update()) {
+			if(this.from_now() && this.live_update()) {
 				this.start_interval();
 			};
 			var handler = this;
