@@ -49,7 +49,7 @@ InTheZone.javascript_path # => "/Workspaces/in_the_zone/static_assets/javascript
 ```
 
 Or if you have the gem install, you can just run:
-```sh
+```shell
 > in_the_zone_js_path
 /Workspaces/in_the_zone/static_assets/javascripts/inthezone.js
 
@@ -76,7 +76,7 @@ require.config({
 
 You can of course just copy the JS file to your repo as well... whatever works!
 
-```sh
+```shell
 > cp `in_the_zone_js_path` ./static/javascripts
 ```
 
