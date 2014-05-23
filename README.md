@@ -37,6 +37,16 @@ Then if you include the JS from the gem at the path gleaned from:
 InTheZone.javascript_path # => "/Workspaces/in_the_zone/static_assets/javascripts/inthezone.js"
 ```
 
+Or if you have the gem install, you can just run:
+```sh
+> in_the_zone_js_path
+/Workspaces/in_the_zone/static_assets/javascripts/inthezone.js
+
+# Or if you have it in your bundle:
+> bundle exec in_the_zone_js_path
+/Workspaces/in_the_zone/static_assets/javascripts/inthezone.js
+```
+
 Or, if you use RequireJS, you can add this to your config file:
 
 ```javascript
