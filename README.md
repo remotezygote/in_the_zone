@@ -1,6 +1,6 @@
 # InTheZone
 
-This is a simple gem that uses some simple tag generation helpers and some in-page javascript using RequireJS, KnockoutJS and MomentJS to make sure times displayed in a page are in the browser's local time zone and format.
+This is a simple gem that uses some simple tag generation helpers and some in-page javascript using [RequireJS](http://requirejs.org/), [Knockout](http://knockoutjs.com/) and [Moment.js](http://momentjs.com/) to make sure times displayed in a page are in the browser's local time zone and format.
 
 ## Installation
 
