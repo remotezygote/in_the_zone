@@ -56,7 +56,16 @@ require.config({
   }
 ```
 
-This span will automatically fill in with the time displayed in the correct format, in the correct timezone for the browser.
+This span will automatically fill in with the time displayed in the correct format, in the correct timezone for the browser, as long as you have required the `inthezone` module and applied bindings.
+
+```javascript
+define('test',
+  ['ko', 'moment', 'inthezone'],
+  function(ko,moment,zone) {
+    ko.applyBindings();
+  }
+);
+```
 
 ## Contributing
 
