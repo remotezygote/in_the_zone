@@ -22,13 +22,21 @@ Pretty simple:
 
 ```ruby
 require 'in_the_zone'
+
+# Time
 InTheZone.time_tag( Time.now.utc, format: 'L', live_update: true )
+
+# Date
+InTheZone.date_tag( Date.today.to_time.utc )
+
 ```
 
 Which will generate markup like:
 
 ```html
 <span class="local-time" data-bind="localizeTime: { timestamp: 1400885511, format: 'L', live_update: true }">05/23/14</span>
+
+<span class="local-time" data-bind="localizeTime: { timestamp: 1400828400, format: 'LLL' }">May 23 2014  7:00 AM</span>
 ```
 
 Then if you include the JS from the gem at the path gleaned from:

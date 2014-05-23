@@ -64,9 +64,9 @@ module LDML
         when 2
           "%B %d %Y"
         when 3
-          "%B %d %Y %k:%M %p"
+          "%B %d %Y %l:%M %p"
         else
-          "%A, %B %d %Y %k:%M %p"
+          "%A, %B %d %Y %l:%M %p"
         end
       else # just add spaces for any unsupported formats (sucks)
         " " * len

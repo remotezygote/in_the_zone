@@ -20,7 +20,7 @@ module InTheZone
   end
 
   def date_tag( date, opts={} )
-    time_tag( date.to_time, opts.merge( date_only: true, format: "%a, %d %b %Y" ) )
+    time_tag( date.to_time, opts.merge( date_only: true, format: "LLL" ) )
   end
 
   def javascript_path
