@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = InTheZone::VERSION
   spec.authors       = ["John Bragg"]
   spec.email         = ["remotezygote@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Display dates and times reliably in the user's local time zone.}
+  spec.description   = %q{This is a simple gem that uses some simple tag generation helpers and some in-page javascript to make sure times displayed in a page are in the browser's local time zone and format.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
