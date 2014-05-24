@@ -10,8 +10,14 @@ Gem::Specification.new do |spec|
   spec.email         = ["remotezygote@gmail.com"]
   spec.summary       = %q{Display dates and times reliably in the user's local time zone.}
   spec.description   = %q{This is a simple gem that uses some simple tag generation helpers and some in-page javascript to make sure times displayed in a page are in the browser's local time zone and format.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/remotezygote/in_the_zone"
   spec.license       = "MIT"
+
+  cert = File.expand_path("~/.ssh/gem-private_key_remotezygote.pem")
+  if File.exist?(cert)
+    spec.signing_key = cert
+    spec.cert_chain = ["gem-public_cert.pem"]
+  end
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
