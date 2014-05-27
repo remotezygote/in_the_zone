@@ -2,12 +2,17 @@ define('inthezone',
 	['ko', 'moment'],
 	function(ko, moment) {
 
+		var options = {
+			format_methods: {}
+		};
+
 		var InTheZone = function(element, opts) {
 			this.element = element;
 			this.format = ko.observable(opts.format);
 			this.current_time = ko.observable(moment.unix(opts.timestamp));
 			this.from_now = ko.observable(opts.from_now);
 			this.live_update = ko.observable(opts.live_update);
+			this.format_method = ko.observable(opts.format_method);
 			if(this.from_now() && this.live_update()) {
 				this.start_interval();
 			};
@@ -33,25 +38,14 @@ define('inthezone',
 			return(60*60*24*interval_base);
 		};
 
-		// A Cozy-style time_from_now function...
-		// InTheZone.prototype.time_from_now = function(time) {
-		// 	if(time.diff(moment(),'days')==0) {
-		// 		return(time.format('LT'));
-		// 	} else if(time.diff(moment(),'days')==-1){
-		// 		return('Yesterday');
-		// 	} else {
-		// 		return(time.format('l'));
-		// 	};
-		// };
-
-		InTheZone.prototype.time_from_now = function(time) {
-			return(time.fromNow());
-		};
-
 		InTheZone.prototype.update_time = function(new_time) {
 			if(new_time) this.current_time(moment(new_time));
-			if(this.from_now()) {
-				this.element.innerHTML = this.time_from_now(this.current_time());
+			var meth;
+			if(this.format_method() && (meth = options.format_methods[ this.format_method() ])) {
+				this.element.innerHTML = meth(this.current_time());
+			}
+			else if(this.from_now()) {
+				this.element.innerHTML = this.current_time().fromNow();
 			} else {
 				this.element.innerHTML = this.current_time().format(this.format());
 			};
@@ -72,4 +66,6 @@ define('inthezone',
 				element.timeHandler.update_time();
 			}
 		}
+
+		return(options)
 });

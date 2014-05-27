@@ -55,6 +55,9 @@ module InTheZone
     if opts[ :from_now ]
       data[ :options ][ :from_now ] = true
     end
+    if opts[ :format_method ]
+      data[ :options ][ :format_method ] = opts[ :format_method ].to_s
+    end
     if opts[ :live_update ]
       data[ :options ][ :live_update ] = true
     end
